@@ -139,7 +139,9 @@ export function ApiExample() {
                 <div key={index} className="p-2 bg-gray-50 rounded text-sm">
                   <p><strong>Name:</strong> {String(user.name || 'N/A')}</p>
                   <p><strong>Email:</strong> {String(user.email || 'N/A')}</p>
-                  {user.role && <p><strong>Role:</strong> {String(user.role)}</p>}
+                  {typeof user.role === 'string' || typeof user.role === 'number' || typeof user.role === 'boolean' ? (
+                    <p><strong>Role:</strong> {String(user.role)}</p>
+                  ) : null}
                 </div>
               ))}
             </div>
